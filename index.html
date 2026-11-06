@@ -1845,6 +1845,7 @@ $("#nlForm").onsubmit = e => { e.preventDefault(); $("#nlMsg").textContent = "Me
   hd.addEventListener("focusin", () => hd.classList.remove("compact"));
 })();
 
+try { localStorage.removeItem("kuktu-brand"); } catch (e) {}  /* purge logo/nom sauvegardés par l'ancien éditeur */
 applyBrand();
 saveCart(); route();
 </script>

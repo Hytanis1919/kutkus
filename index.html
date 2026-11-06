@@ -1845,33 +1845,6 @@ $("#nlForm").onsubmit = e => { e.preventDefault(); $("#nlMsg").textContent = "Me
   hd.addEventListener("focusin", () => hd.classList.remove("compact"));
 })();
 
-/* ---------- personnalisation depuis la page (crayon à côté du logo) ----------
-   Le crayon s'affiche dans l'aperçu, ou sur le site en ligne avec ?edit=1 dans l'adresse.
-   Le choix est gardé dans ce navigateur ; pour le site en ligne, recopier le nom dans SHOP.name. */
-{ const saved = store.get("kuktu-brand", null); if (saved) { if (saved.name) SHOP.name = saved.name; if (saved.logo) SHOP.logo = saved.logo; } }
-function canEdit(){ try { const host = new URL(SHOP.domain).hostname; return new URLSearchParams(location.search).has("edit") || location.hostname !== host; } catch (e) { return true; } }
-function openBrand(){
-  let logo = SHOP.logo || "";
-  $("#layer").innerHTML = `<div class="scrim" data-close></div><div class="sheet brand" role="dialog" aria-modal="true" aria-label="Personnaliser la boutique">
-    <button class="x" data-close aria-label="Fermer">×</button><h2>Personnaliser la boutique</h2>
-    <label class="fl">Nom affiché<input id="bName" maxlength="40" value="${esc(SHOP.name)}"></label>
-    <div class="fl">Logo<div class="lgrow"><span class="lgprev">${logo ? `<img src="${esc(logo)}" alt="">` : "logo par défaut"}</span><label class="btn-line lgbtn">choisir une image<input id="bLogo" type="file" accept="image/*" hidden></label><button class="lnk2" id="bNoLogo" type="button">logo par défaut</button></div></div>
-    <p class="note">Le nom choisi doit être celui de ta boutique, que tu as le droit d'utiliser.</p>
-    <div class="ubtns"><button class="btn-line" id="bReset" type="button">réinitialiser</button><button class="btn-navy" id="bSave" type="button">enregistrer</button></div>
-    <div class="cfg"><b>Pour le site en ligne</b>, recopie cette ligne dans le bloc SHOP de index.html :<code id="bCode"></code><button class="lnk2" id="bCopy" type="button">copier la ligne</button></div></div>`;
-  requestAnimationFrame(() => $(".sheet").classList.add("open"));
-  const code = () => $("#bCode").textContent = `name: ${JSON.stringify($("#bName").value.trim() || "Kuktu")},`;
-  code(); $("#bName").oninput = code;
-  $("#bLogo").onchange = e => { const f = e.target.files[0]; if (!f) return;
-    const img = new Image(), r = new FileReader();
-    r.onload = () => { img.onload = () => { const c = document.createElement("canvas"), h = 120, w = Math.round(img.width * h / img.height); c.width = w; c.height = h; c.getContext("2d").drawImage(img, 0, 0, w, h); logo = c.toDataURL("image/png"); $(".lgprev").innerHTML = `<img src="${logo}" alt="">`; }; img.src = r.result; };
-    r.readAsDataURL(f); };
-  $("#bNoLogo").onclick = () => { logo = ""; $(".lgprev").textContent = "logo par défaut"; };
-  $("#bSave").onclick = () => { const n = $("#bName").value.trim() || "Kuktu"; store.set("kuktu-brand", {name:n, logo}); location.reload(); };
-  $("#bReset").onclick = () => { try { localStorage.removeItem("kuktu-brand"); } catch (e) {} location.reload(); };
-  $("#bCopy").onclick = () => { try { navigator.clipboard.writeText($("#bCode").textContent); toast("Ligne copiée"); } catch (e) { toast("Sélectionne la ligne pour la copier"); } };
-}
-if (canEdit()) { const lg = $(".logo"); if (lg) { const pen = document.createElement("button"); pen.className = "penbtn"; pen.type = "button"; pen.setAttribute("aria-label", "Modifier le nom et le logo"); pen.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m14 6 4 4"/></svg>`; pen.onclick = openBrand; lg.after(pen); } }
 applyBrand();
 saveCart(); route();
 </script>

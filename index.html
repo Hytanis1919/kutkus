@@ -23,7 +23,7 @@
 <meta property="og:url" id="ogUrl" content="https://www.votre-domaine.fr/">
 <meta property="og:image" id="ogImg" content="https://www.votre-domaine.fr/photos/m6a-30th.webp">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 34 40'%3E%3Crect x='7' y='2' width='24' height='34' rx='4' fill='%23dc3237' transform='rotate(10 19 19)'/%3E%3Crect x='3' y='4' width='24' height='34' rx='4' fill='%23fff' stroke='%231b3b77'/%3E%3Ccircle cx='15' cy='21' r='7' fill='none' stroke='%231b3b77' stroke-width='3'/%3E%3Cpath d='M8 21h14' stroke='%231b3b77' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="logo.svg">
 <script type="application/ld+json" id="ldSite"></script>
 <script type="application/ld+json" id="ldPage"></script>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -695,7 +695,7 @@ body.cartmode .promo{display:none}
   <div class="wrap">
     <div class="row">
       <a class="logo" href="#accueil" aria-label="Kuktus, accueil">
-        <svg width="34" height="40" viewBox="0 0 34 40" aria-hidden="true"><rect x="7" y="2" width="24" height="34" rx="4" fill="#dc3237" transform="rotate(10 19 19)"/><rect x="3" y="4" width="24" height="34" rx="4" fill="#fff"/><circle cx="15" cy="21" r="7" fill="none" stroke="#1b3b77" stroke-width="3"/><path d="M8 21h14" stroke="#1b3b77" stroke-width="3"/></svg>
+        <img class="brandlogo" src="logo.svg" alt="" width="34" height="40" style="height:40px;width:auto;display:block">
         <span><b>Kuktus</b></span>
       </a>
       <button class="hbtn" id="shipBtn"><span class="lbl">Choisissez un m…</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></button>
@@ -1233,7 +1233,7 @@ function renderGrid(){
    Google Ads et Merchant Center refusent un site sans vraies coordonnées. */
 const SHOP = {
   name: "Kuktus",          // NOM DE LA BOUTIQUE : remplace « Kuktu » par ton nom, il change partout sur le site
-  logo: "",               // LOGO : adresse de ton image (ex. "logo.png" à côté de index.html) ; vide = logo dessiné par défaut
+  logo: "logo.svg",       // LOGO : fichier image du logo (logo.svg à la racine) ; utilisé dans l'en-tête, l'onglet et pour Google
   domain: "https://www.votre-domaine.fr",          // adresse du site, sans / final
   /* ===== MENTIONS LÉGALES : à remplir toi-même, remplace chaque texte entre [crochets] ===== */
   legal: "[Nom et prénom ou raison sociale]",
@@ -1426,7 +1426,7 @@ function productLd(p){
   return ld;
 }
 function siteLd(){
-  const org = {"@type":"OnlineStore", "@id":SHOP.domain + "/#boutique", name:SHOP.name, url:SHOP.domain + "/", email:SHOP.email, logo:absUrl("logo.svg"),
+  const org = {"@type":"OnlineStore", "@id":SHOP.domain + "/#boutique", name:SHOP.name, url:SHOP.domain + "/", email:SHOP.email, logo:absUrl(SHOP.logo || "logo.svg"),
     description:"Revendeur indépendant de cartes Pokémon neuves et scellées et d'accessoires de protection.",
     hasMerchantReturnPolicy:{"@type":"MerchantReturnPolicy", applicableCountry:"FR", returnPolicyCategory:"https://schema.org/MerchantReturnFiniteReturnWindow", merchantReturnDays:SHOP.returnDays, returnFees:"https://schema.org/FreeReturn"}};
   if (!/\[/.test(SHOP.phone)) org.telephone = SHOP.phone;
@@ -1714,7 +1714,7 @@ function applyBrand(){
   const lg = $(".logo"); if (lg) {
     lg.setAttribute("aria-label", SHOP.name + ", accueil");
     const b = lg.querySelector("b"); if (b) b.textContent = SHOP.name;
-    if (SHOP.logo && !lg.querySelector("img.brandlogo")) { const svg = lg.querySelector("svg"); const im = document.createElement("img"); im.className = "brandlogo"; im.src = SHOP.logo; im.alt = ""; im.style.cssText = "height:40px;width:auto;display:block"; if (svg) svg.replaceWith(im); else lg.prepend(im); }
+    const im = lg.querySelector("img.brandlogo"); if (im && SHOP.logo) im.src = SHOP.logo;
   }
   brandText(document.body);
   document.querySelectorAll('meta[property="og:site_name"]').forEach(m => m.content = SHOP.name);

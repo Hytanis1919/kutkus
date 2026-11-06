@@ -23,7 +23,7 @@
 <meta property="og:url" id="ogUrl" content="https://www.votre-domaine.fr/">
 <meta property="og:image" id="ogImg" content="https://www.votre-domaine.fr/photos/m6a-30th.webp">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/svg+xml" href="logo.svg">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script type="application/ld+json" id="ldSite"></script>
 <script type="application/ld+json" id="ldPage"></script>
 <meta name="claude:viewport-fit-sides" content="cover">
@@ -695,8 +695,7 @@ body.cartmode .promo{display:none}
   <div class="wrap">
     <div class="row">
       <a class="logo" href="#accueil" aria-label="Kuktus, accueil">
-        <img class="brandlogo" src="logo.svg" alt="" width="34" height="40" style="height:40px;width:auto;display:block">
-        <span><b>Kuktus</b></span>
+        <img class="brandlogo" src="logo.svg" alt="Kuktus" height="40" style="height:40px;width:auto;display:block">
       </a>
       <button class="hbtn" id="shipBtn"><span class="lbl">Choisissez un m…</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 22s7-7 7-12a7 7 0 0 0-14 0c0 5 7 12 7 12z"/><circle cx="12" cy="10" r="2.6"/></svg></button>
       <button class="hbtn" id="accountBtn"><span class="lbl">Bonjour,<br>identifiez-vous</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg></button>
@@ -1233,7 +1232,7 @@ function renderGrid(){
    Google Ads et Merchant Center refusent un site sans vraies coordonnées. */
 const SHOP = {
   name: "Kuktus",          // NOM DE LA BOUTIQUE : remplace « Kuktu » par ton nom, il change partout sur le site
-  logo: "logo.svg",       // LOGO : fichier image du logo (logo.svg à la racine) ; utilisé dans l'en-tête, l'onglet et pour Google
+  logo: "logo.svg",       // LOGO : fichier image du logo (logo.svg à la racine) ; logo complet affiché dans l'en-tête (favicon.svg = icône seule pour l'onglet et Google)
   domain: "https://www.votre-domaine.fr",          // adresse du site, sans / final
   /* ===== MENTIONS LÉGALES : à remplir toi-même, remplace chaque texte entre [crochets] ===== */
   legal: "[Nom et prénom ou raison sociale]",
@@ -1426,7 +1425,7 @@ function productLd(p){
   return ld;
 }
 function siteLd(){
-  const org = {"@type":"OnlineStore", "@id":SHOP.domain + "/#boutique", name:SHOP.name, url:SHOP.domain + "/", email:SHOP.email, logo:absUrl(SHOP.logo || "logo.svg"),
+  const org = {"@type":"OnlineStore", "@id":SHOP.domain + "/#boutique", name:SHOP.name, url:SHOP.domain + "/", email:SHOP.email, logo:absUrl("favicon.svg"),
     description:"Revendeur indépendant de cartes Pokémon neuves et scellées et d'accessoires de protection.",
     hasMerchantReturnPolicy:{"@type":"MerchantReturnPolicy", applicableCountry:"FR", returnPolicyCategory:"https://schema.org/MerchantReturnFiniteReturnWindow", merchantReturnDays:SHOP.returnDays, returnFees:"https://schema.org/FreeReturn"}};
   if (!/\[/.test(SHOP.phone)) org.telephone = SHOP.phone;

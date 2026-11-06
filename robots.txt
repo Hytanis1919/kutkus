@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /?p=rayon-recherche
 
-Sitemap: https://www.votre-domaine.fr/sitemap.xml
+Sitemap: https://www.kuktus-boutique.fr/sitemap.xml

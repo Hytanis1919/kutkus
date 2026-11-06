@@ -1,0 +1,61 @@
+# Kuktus — Apache (OVH, mutualisé Pro, ou serveur Apache compatible mod_rewrite / mod_headers)
+# ---------------------------------------------------------------------------
+# IMPORTANT : ne pas rediriger ou servir un contenu différent selon « bot » vs « humain »
+# (cloaking / IP discrimination). C’est interdit par Google Ads et les conditions d’indexation,
+# et peut entraîner un bannissement du compte / du site. Les règles ci-dessous sont limitées
+# au HTTPS, cache, en-têtes de sécurité et bonnes pratiques serveur.
+# ---------------------------------------------------------------------------
+
+Options -Indexes
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Forcer HTTPS (désactivez si vous testez en local sans SSL)
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,QSA]
+
+  # Une seule variante d’hôte (remplacez par votre domaine canonique)
+  RewriteCond %{HTTP_HOST} !^www\.kuktus-boutique\.fr$ [NC]
+  RewriteRule ^ https://www.kuktus-boutique.fr%{REQUEST_URI} [L,R=301,QSA]
+</IfModule>
+
+# En-têtes de sécurité (mod_headers requis)
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+  # CSP stricte : à adapter si vous ajoutez des scripts tiers non listés
+  # Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net https://analytics.tiktok.com https://www.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://www.facebook.com https://analytics.tiktok.com https://www.clarity.ms; frame-ancestors 'self'"
+</IfModule>
+
+# Compression (si mod_deflate disponible)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json image/svg+xml
+</IfModule>
+
+# Cache navigateur — ressources statiques (ajustez si vous déployez souvent sans versioning)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresDefault "access plus 1 hour"
+</IfModule>
+
+# Types MIME utiles
+<IfModule mod_mime.c>
+  AddType image/svg+xml .svg
+  AddType application/javascript .js
+</IfModule>
+
+# Fichier unique : pas de règle de fallback SPA nécessaire pour ?p=…
+# (le routage est géré côté JavaScript dans index.html)

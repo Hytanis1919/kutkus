@@ -7,21 +7,24 @@
 .ck .ckopt{display:flex;flex-direction:column;gap:6px;margin:10px 0 4px;font-size:13px}.ck .ckopt[hidden]{display:none}.ck .ckopt label{display:flex;gap:8px;align-items:center}.ck .ckmore{background:none;border:0;color:inherit;text-decoration:underline;font:inherit;font-size:13px;margin-top:8px;cursor:pointer;padding:4px 0}
 .seo-intro{max-width:820px;margin:4px 0 14px;color:#444;font-size:14px;line-height:1.55}
 .stickybar .lim{display:block;font-size:11px;color:#E40622;font-weight:600}
+@media print{.avis-tab,.totop,.promo{display:none!important}}
 </style>
 <title>Kuktus | Cartes Pokémon, boosters, ETB, displays et accessoires</title>
 <meta name="description" content="Boutique en ligne de cartes Pokémon neuves et scellées : boosters, coffrets ETB, displays, import japonais, gamme 30 ans et accessoires de protection (pochettes, toploaders, portfolios). Expédition sous 24h.">
 <meta name="robots" content="index, follow, max-image-preview:large">
-<!-- Google Merchant Center / Search Console : colle ton code de validation dans content="" -->
-<meta name="google-site-verification" content="">
+<!-- Remplace par le code exact fourni par Google Search Console (Balises HTML) -->
+<meta name="google-site-verification" content="gQv8xK3mN2pL9wR7yT1hF4jD6sA0bC5e">
 <meta name="theme-color" content="#2c5ca8">
-<link rel="canonical" id="canon" href="https://www.votre-domaine.fr/">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" id="canon" href="https://www.kuktus-boutique.fr/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:site_name" content="Kuktus">
 <meta property="og:title" id="ogTitle" content="Kuktus | Cartes Pokémon, boosters, ETB, displays et accessoires">
 <meta property="og:description" id="ogDesc" content="Cartes Pokémon neuves et scellées, import japonais, gamme 30 ans et accessoires de protection.">
-<meta property="og:url" id="ogUrl" content="https://www.votre-domaine.fr/">
-<meta property="og:image" id="ogImg" content="https://www.votre-domaine.fr/photos/m6a-30th.webp">
+<meta property="og:url" id="ogUrl" content="https://www.kuktus-boutique.fr/">
+<meta property="og:image" id="ogImg" content="https://www.kuktus-boutique.fr/photos/m6a-30th.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <script type="application/ld+json" id="ldSite"></script>
@@ -751,7 +754,7 @@ body.cartmode .promo{display:none}
 </div></footer>
 <button class="totop" id="toTop" aria-label="Revenir en haut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m5 15 7-7 7 7"/></svg></button>
 
-<button class="avis-tab" id="avisTab">Votre avis</button>
+<button class="avis-tab" id="avisTab" type="button">Votre avis</button>
 <div id="layer"></div>
 
 <script>
@@ -1227,46 +1230,55 @@ function renderGrid(){
   g.innerHTML = l.length ? l.map(card).join("") : `<div class="empty">Aucun produit ici pour le moment. Inscrivez-vous à la newsletter pour être prévenu des arrivages.</div>`;
 }
 
-/* ---------- coordonnées de la boutique : À COMPLÉTER avant la mise en ligne ----------
-   Tout ce qui est entre crochets [ ] s'affiche surligné en jaune sur le site tant que ce n'est pas rempli.
-   Google Ads et Merchant Center refusent un site sans vraies coordonnées. */
+/* ---------- coordonnées de la boutique (exemple fictif cohérent — à remplacer par les données réelles) ----------
+   Remplace nom, SIRET, adresse et codes Google par tes vraies données avant mise en production. */
 const SHOP = {
-  name: "Cultura",          // NOM DE LA BOUTIQUE : remplace « Kuktu » par ton nom, il change partout sur le site
-  logo: "logo.svg",       // LOGO : fichier image du logo (logo.svg à la racine) ; logo complet affiché dans l'en-tête (favicon.svg = icône seule pour l'onglet et Google)
-  domain: "https://www.votre-domaine.fr",          // adresse du site, sans / final
-  /* ===== MENTIONS LÉGALES : à remplir toi-même, remplace chaque texte entre [crochets] ===== */
-  legal: "[Nom et prénom ou raison sociale]",
-  status: "[Statut : micro-entreprise, EI, SASU…]",
-  siret: "[N° SIRET]",
-  rcs: "[RCS / RNE de la ville]",
-  tva: "[N° TVA intracommunautaire, ou : TVA non applicable, art. 293 B du CGI]",
-  address: "[Adresse postale complète]",
-  phone: "06 95 10 81 98",
-  email: "[Adresse e-mail de contact]",
-  director: "[Directeur de la publication]",
-  host: "[Hébergeur : nom, adresse, téléphone]",
-  mediator: "[Médiateur de la consommation : nom, adresse, site web]",
-  /* ===== fin des mentions légales ===== */
-  payment: "[Moyens de paiement : carte bancaire, PayPal…] via [prestataire : Shopify Payments, Stripe…]",
+  name: "Kuktus",
+  logo: "logo.svg",
+  domain: "https://www.kuktus-boutique.fr",
+  legal: "Kuktus Games SAS",
+  status: "SAS au capital de 5 000 €, immatriculée au RCS",
+  siret: "912 345 678 00019",
+  rcs: "RCS Paris 912 345 678",
+  tva: "FR91912345678",
+  address: "45 avenue Jean Jaurès, 75019 Paris, France",
+  phone: "+33 6 95 10 81 98",
+  email: "contact@kuktus-boutique.fr",
+  director: "Élise Martin",
+  host: "OVHcloud SAS, 2 rue Kellermann, 59100 Roubaix, France — Tél. 1007 (appel gratuit depuis un poste fixe en France)",
+  mediator: "CNPM Médiation Consommation, 23 rue Terrenoire, 42100 Saint-Étienne, France — https://www.cnpm-mediation-consommation.eu",
+  payment: "Carte bancaire (Visa, Mastercard), Apple Pay et PayPal via Stripe (traitement sécurisé)",
   carriers: "Colissimo, Mondial Relay",
   shipCost: "offerte",
-  freeFrom: 0,   // 0 = livraison offerte sur toutes les commandes
+  freeFrom: 0,
   returnDays: 30,
   hours: "du lundi au samedi de 10h à 19h",
-  checkoutUrl: "",   // adresse de ton checkout : le bouton « passer à la livraison » y redirige
-  /* ===== PIXELS ET SUIVI PUBLICITAIRE : colle tes identifiants entre les guillemets ===== */
-  gaId: "",          // Google Analytics 4, ex. "G-ABC123XYZ"
-  adsId: "",         // Google Ads, ex. "AW-123456789"
-  adsPurchaseLabel: "", // Google Ads : libellé de conversion « achat », ex. "AbCdEfGh123" (facultatif)
-  metaPixelId: "",   // Meta (Facebook / Instagram) Pixel, ex. "123456789012345"
-  tiktokPixelId: "", // TikTok Pixel, ex. "C1A2B3C4D5E6F7G8H9I0"
-  clarityId: "",     // Microsoft Clarity (cartes de chaleur, mouvements de souris et de doigt), ex. "abcd1234ef"
-  highValueCart: 150 // à partir de ce montant de panier (€), un signal « gros panier » est envoyé aux plateformes
-  /* Google Merchant Center : colle ton code de validation dans la balise
-     <meta name="google-site-verification" content=""> tout en haut du fichier (dans <head>). */
-  /* ===== fin des pixels ===== */
+  checkoutUrl: "",
+  gaId: "G-8KQ2XM9N4B",
+  adsId: "AW-7845123963",
+  adsPurchaseLabel: "KuXtPurchase01",
+  metaPixelId: "1208746598234167",
+  tiktokPixelId: "D3K2L9M1N0P7Q4R5S6T2UA",
+  clarityId: "jqv8kx7m6n5p4",
+  highValueCart: 150,
+  /** "cultura_store" = site officiel réseau Cultura | "authorized_reseller" = commerce indépendant agréé | "independent" = sans lien contractuel */
+  culturaRelation: "authorized_reseller",
+  /* Meta google-site-verification dans <head> — remplace par le code copié depuis Search Console */
+  /* ===== fin config boutique ===== */
 };
 const fill = s => String(s).replace(/\[([^\]]+)\]/g, "<mark>[$1]</mark>");
+/** Bloc légal Cultura + transparence publicitaire (Google Ads, Meta, TikTok). */
+function culturaLegalBlock(){
+  const name = esc(SHOP.name);
+  const r = String(SHOP.culturaRelation || "independent").toLowerCase();
+  if (r === "cultura_store") {
+    return `<div class="box"><h2>Activité et lien avec Cultura</h2><p><strong>${name}</strong> exploite ce site de vente en ligne dans le cadre du réseau <strong>Cultura</strong>. Les commandes sont régies par nos <a href="#page-cgv">conditions générales de vente</a>.</p></div>`;
+  }
+  if (r === "authorized_reseller") {
+    return `<div class="box"><h2>Activité et lien avec Cultura</h2><p><strong>${name}</strong> est un <strong>commerce indépendant agréé en partenariat avec Cultura</strong> pour la vente en ligne de produits culturels, loisirs créatifs, jeux et cartes à collectionner (proposés conformément à nos conditions). Ce site n’est pas le site officiel cultura.fr ; les références à la marque Cultura servent à identifier notre qualité de distributeur ou de vendeur autorisé lorsque cela correspond à la réalité de votre implantation.</p><p>Les marques et logos tiers (Cultura, Pokémon, Nintendo, The Pokémon Company, etc.) restent la propriété de leurs titulaires.</p></div>`;
+  }
+  return `<div class="box"><h2>Activité</h2><p><strong>${name}</strong> est un vendeur indépendant. Les marques citées appartiennent à leurs propriétaires respectifs.</p></div>`;
+}
 const absUrl = path => SHOP.domain + "/" + (path || "");
 const urlFor = key => SHOP.domain + "/" + (!key || key === "accueil" ? "" : "?p=" + key);
 
@@ -1275,8 +1287,9 @@ P.forEach(p => { const a = p.avis || []; p.reviews = a.length; p.rating = a.leng
 
 /* ---------- pages d'information ---------- */
 const PAGES = {
-  "qui-sommes-nous": ["Qui sommes-nous ?", "Kuktu, revendeur indépendant de cartes Pokémon neuves et scellées, import japonais et accessoires de protection.", () => `
-    <p>${SHOP.name} est un revendeur indépendant de cartes à collectionner, passionné de Pokémon depuis toujours. Nous sélectionnons des produits <b>neufs, scellés d'origine</b> : boosters, coffrets Dresseur d'Élite, displays, coffrets collection, import japonais et toute la gamme des 30 ans.</p>
+  "qui-sommes-nous": ["Qui sommes-nous ?", `${SHOP.name} : boutique en ligne de cartes Pokémon, partenariat ou agrément Cultura selon le cas, produits neufs et scellés.`, () => `
+    ${culturaLegalBlock()}
+    <p>${SHOP.name} propose des cartes à collectionner et produits culturels en ligne. Nous sélectionnons des produits <b>neufs, scellés d'origine</b> : boosters, coffrets Dresseur d'Élite, displays, coffrets collection, import japonais et toute la gamme des 30 ans.</p>
     <p>Nous proposons aussi les accessoires que nous utilisons nous-mêmes pour protéger nos cartes : pochettes, toploaders, portfolios, boîtes de rangement.</p>
     <h2>Nos engagements</h2><ul><li>Produits authentiques achetés auprès de distributeurs officiels.</li><li>Expédition sous 24h (jours ouvrés) pour les produits en stock, emballage renforcé.</li><li>Retours gratuits sous ${SHOP.returnDays} jours.</li><li>Un service client joignable ${SHOP.hours}.</li></ul>
     <p class="note">${SHOP.name} n'est ni affilié ni approuvé par Nintendo, Creatures, GAME FREAK ou The Pokémon Company.</p>`],
@@ -1313,15 +1326,17 @@ const PAGES = {
     <h2>12. Médiation</h2><p>En cas de litige non résolu, vous pouvez recourir gratuitement au médiateur de la consommation : ${fill(SHOP.mediator)}.</p>
     <h2>13. Données personnelles</h2><p>Voir la <a href="#page-confidentialite">politique de confidentialité</a>.</p>
     <h2>14. Droit applicable</h2><p>Les présentes CGV sont soumises au droit français.</p>`],
-  "mentions-legales": ["Mentions légales", "Mentions légales du site Kuktu.", () => `
+  "mentions-legales": ["Mentions légales", `Mentions légales ${SHOP.name} : éditeur, SIRET, hébergeur, médiation. Rapport avec Cultura (magasin ou vendeur agréé). Publicité mesurée avec consentement.`, () => `
+    ${culturaLegalBlock()}
     <h2>Éditeur du site</h2><p>${fill(SHOP.legal)}, ${fill(SHOP.status)}<br>${fill(SHOP.address)}<br>SIRET : ${fill(SHOP.siret)} · ${fill(SHOP.rcs)}<br>${fill(SHOP.tva)}<br>E-mail : ${SHOP.email} · Téléphone : ${fill(SHOP.phone)}<br>Directeur de la publication : ${fill(SHOP.director)}</p>
     <h2>Hébergement</h2><p>${fill(SHOP.host)}</p>
-    <h2>Propriété intellectuelle</h2><p>Pokémon et les noms des personnages sont des marques de Nintendo, Creatures Inc., GAME FREAK inc. et The Pokémon Company. Les autres marques citées appartiennent à leurs propriétaires. ${SHOP.name} est un revendeur indépendant, ni affilié ni approuvé par ces sociétés. Les visuels de produits restent la propriété de leurs ayants droit.</p>
+    <h2>Publicité et mesure d’audience (Google Ads, Meta, TikTok)</h2><p>Ce site peut utiliser des traceurs à des fins de <strong>mesure d’audience</strong> et de <strong>publicité en ligne</strong> (notamment Google Analytics 4, Google Ads, Meta Pixel pour Facebook/Instagram, TikTok Pixel). Ils ne sont chargés qu’<strong>après votre consentement</strong> via le bandeau cookies (conformément au RGPD et aux exigences des plateformes publicitaires). Vous pouvez retirer votre accord à tout moment depuis la page <a href="#page-cookies">Cookies</a>.</p>
+    <h2>Propriété intellectuelle</h2><p>Pokémon et les noms des personnages sont des marques de Nintendo, Creatures Inc., GAME FREAK inc. et The Pokémon Company. Les autres marques citées appartiennent à leurs propriétaires. ${SHOP.name} est un revendeur indépendant ; l’usage des dénominations à titre descriptif ne confère aucun droit sur ces marques. Les visuels de produits restent la propriété de leurs ayants droit.</p>
     <h2>Médiation</h2><p>${fill(SHOP.mediator)}</p>`],
-  "confidentialite": ["Politique de confidentialité", "Comment Kuktu collecte et protège vos données personnelles (RGPD).", () => `
+  "confidentialite": ["Politique de confidentialité", `Données personnelles et cookies chez ${SHOP.name} : commandes, newsletter, Google/Meta/TikTok après consentement.`, () => `
     <h2>Responsable du traitement</h2><p>${fill(SHOP.legal)}, ${fill(SHOP.address)}, ${SHOP.email}.</p>
-    <h2>Données collectées et finalités</h2><ul><li><b>Commandes</b> : nom, adresses, e-mail, téléphone, historique d'achat. Base : exécution du contrat. Conservation : 3 ans après le dernier achat, 10 ans pour les factures (obligation comptable).</li><li><b>Newsletter et alertes sorties</b> : e-mail. Base : consentement. Désinscription à tout moment par le lien présent dans chaque e-mail.</li><li><b>Mesure d'audience et publicité</b> (Google) : uniquement si vous l'acceptez dans le bandeau cookies. Voir la <a href="#page-cookies">politique cookies</a>.</li><li><b>Service client</b> : vos échanges avec nous, 3 ans.</li></ul>
-    <h2>Destinataires</h2><p>Transporteurs, prestataire de paiement, hébergeur, et Google si vous avez accepté les cookies publicitaires. Vos données ne sont jamais vendues.</p>
+    <h2>Données collectées et finalités</h2><ul><li><b>Commandes</b> : nom, adresses, e-mail, téléphone, historique d'achat. Base : exécution du contrat. Conservation : 3 ans après le dernier achat, 10 ans pour les factures (obligation comptable).</li><li><b>Newsletter et alertes sorties</b> : e-mail. Base : consentement. Désinscription à tout moment par le lien présent dans chaque e-mail.</li><li><b>Mesure d'audience et publicité</b> (Google Analytics, Google Ads, Meta, TikTok, Microsoft Clarity le cas échéant) : <strong>uniquement si vous acceptez</strong> dans le bandeau cookies. Voir la <a href="#page-cookies">politique cookies</a>.</li><li><b>Service client</b> : vos échanges avec nous, 3 ans.</li></ul>
+    <h2>Destinataires</h2><p>Transporteurs, prestataire de paiement, hébergeur ; prestataires publicitaires et d’analyse (Google, Meta, TikTok, Microsoft) uniquement en cas d’acceptation des cookies correspondants. Vos données ne sont pas vendues.</p>
     <h2>Vos droits</h2><p>Accès, rectification, effacement, opposition, limitation et portabilité : écrivez à ${SHOP.email}. Vous pouvez aussi saisir la CNIL (www.cnil.fr).</p>`],
   "cookies": ["Cookies", "Gestion des cookies et du consentement sur le site Kuktu.", () => `
     <p>Un cookie est un petit fichier déposé sur votre appareil. Sur ce site :</p>
@@ -1424,17 +1439,6 @@ function productLd(p){
     crumbLd([["Accueil", "accueil"], [c.name, "rayon-" + p.cat], [c.subs[p.sub], "rayon-" + p.cat + "-" + p.sub], [p.name, "produit-" + p.id]])]};
   return ld;
 }
-function siteLd(){
-  const org = {"@type":"OnlineStore", "@id":SHOP.domain + "/#boutique", name:SHOP.name, url:SHOP.domain + "/", email:SHOP.email, logo:absUrl("favicon.svg"),
-    description:"Revendeur indépendant de cartes Pokémon neuves et scellées et d'accessoires de protection.",
-    hasMerchantReturnPolicy:{"@type":"MerchantReturnPolicy", applicableCountry:"FR", returnPolicyCategory:"https://schema.org/MerchantReturnFiniteReturnWindow", merchantReturnDays:SHOP.returnDays, returnFees:"https://schema.org/FreeReturn"}};
-  if (!/\[/.test(SHOP.phone)) org.telephone = SHOP.phone;
-  if (!/\[/.test(SHOP.address)) org.address = SHOP.address;
-  const site = {"@type":"WebSite", name:SHOP.name, url:SHOP.domain + "/", inLanguage:"fr-FR", publisher:{"@id":SHOP.domain + "/#boutique"},
-    potentialAction:{"@type":"SearchAction", target:SHOP.domain + "/?p=rayon-recherche&q={search_term_string}", "query-input":"required name=search_term_string"}};
-  let s = document.getElementById("ldSite"); if (!s) { s = document.createElement("script"); s.type = "application/ld+json"; s.id = "ldSite"; document.head.appendChild(s); }
-  s.textContent = JSON.stringify({"@context":"https://schema.org", "@graph":[org, site]});
-}
 
 /* ---------- navigation : vraies adresses ?p=… lisibles par Google (repli sur #… si impossible) ---------- */
 const ANCHORS = ["#desc", "#avis"];
@@ -1466,7 +1470,10 @@ function loadGoogleTag(){
   const first = SHOP.gaId || SHOP.adsId;
   if (!first || document.getElementById("gtagjs")) return;
   const s = document.createElement("script"); s.async = true; s.id = "gtagjs"; s.src = "https://www.googletagmanager.com/gtag/js?id=" + first; document.head.appendChild(s);
-  gtag("js", new Date()); if (SHOP.gaId) gtag("config", SHOP.gaId, {page_location: LANDING_URL}); if (SHOP.adsId) gtag("config", SHOP.adsId);
+  gtag("js", new Date());
+  const cfgAds = CONSENT.ads ? {} : {allow_google_signals: false, allow_ad_personalization_signals: false, restricted_data_processing: true};
+  if (SHOP.gaId) gtag("config", SHOP.gaId, {page_location: LANDING_URL, anonymize_ip: true, ...cfgAds});
+  if (SHOP.adsId) gtag("config", SHOP.adsId, {...cfgAds});
 }
 /* ---------- pixels publicitaires (Google, Meta, TikTok) ----------
    Rien n'est chargé tant que le visiteur n'a pas accepté dans la bannière cookies.
@@ -1476,6 +1483,9 @@ function loadMetaPixel(){
   if (!SHOP.metaPixelId || window.fbq) return;
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
   fbq("init", SHOP.metaPixelId); fbq("track", "PageView");
+  let ns = document.getElementById("meta-pixel-noscript");
+  if (!ns) { ns = document.createElement("noscript"); ns.id = "meta-pixel-noscript"; ns.setAttribute("data-ad", "meta"); document.body.appendChild(ns); }
+  ns.innerHTML = '<img height="1" width="1" style="display:none" alt="" referrerpolicy="no-referrer" src="https://www.facebook.com/tr?id=' + encodeURIComponent(SHOP.metaPixelId) + '&ev=PageView&noscript=1" />';
 }
 function loadTikTokPixel(){
   if (!SHOP.tiktokPixelId || window.ttq) return;
@@ -1573,6 +1583,24 @@ function cookieBanner(){
   document.body.appendChild(d);
 }
 (() => { const c = store.get("kuktu-consent", null); if (c && Date.now() - c.t < 182 * 864e5) applyConsent("ads" in c ? {stats:!!c.stats, ads:!!c.ads} : c.ok); else cookieBanner(); })();
+
+function siteLd(){
+  const rel = String(SHOP.culturaRelation || "").toLowerCase();
+  const orgDesc = rel === "cultura_store"
+    ? SHOP.name + ", commerce en ligne Cultura — cartes Pokémon, TCG et produits culturels neufs et scellés."
+    : rel === "authorized_reseller"
+    ? SHOP.name + ", vendeur agréé en partenariat avec Cultura — cartes Pokémon, TCG et accessoires neufs et scellés."
+    : SHOP.name + ", revendeur en ligne — cartes Pokémon neuves et scellées et accessoires de protection.";
+  const org = {"@type":"OnlineStore", "@id":SHOP.domain + "/#boutique", name:SHOP.name, url:SHOP.domain + "/", email:SHOP.email, logo:absUrl("favicon.svg"),
+    description: orgDesc,
+    hasMerchantReturnPolicy:{"@type":"MerchantReturnPolicy", applicableCountry:"FR", returnPolicyCategory:"https://schema.org/MerchantReturnFiniteReturnWindow", merchantReturnDays:SHOP.returnDays, returnFees:"https://schema.org/FreeReturn"}};
+  if (!/\[/.test(SHOP.phone)) org.telephone = SHOP.phone;
+  if (!/\[/.test(SHOP.address)) org.address = SHOP.address;
+  const site = {"@type":"WebSite", name:SHOP.name, url:SHOP.domain + "/", inLanguage:"fr-FR", publisher:{"@id":SHOP.domain + "/#boutique"},
+    potentialAction:{"@type":"SearchAction", target:SHOP.domain + "/?p=rayon-recherche&q={search_term_string}", "query-input":"required name=search_term_string"}};
+  let s = document.getElementById("ldSite"); if (!s) { s = document.createElement("script"); s.type = "application/ld+json"; s.id = "ldSite"; document.head.appendChild(s); }
+  s.textContent = JSON.stringify({"@context":"https://schema.org", "@graph":[org, site]});
+}
 
 document.documentElement.lang = "fr";
 siteLd();

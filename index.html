@@ -468,6 +468,8 @@ body::before{background:#183f76}
 .stickybar .wrap{justify-content:flex-start;gap:14px}
 .stickybar .add{flex:0 0 auto;width:auto;min-width:0;padding:12px 22px;background:#e30613;border-radius:6px}
 /* Retrait en magasin partenaire */
+.partner{display:flex;align-items:center;gap:10px;margin:2px 0 10px;font-size:12px;color:#6b6b6b;text-transform:uppercase;letter-spacing:.06em}
+.partner img{height:26px;width:auto;border-radius:3px;display:block}
 .pick select{width:100%;border:1px solid var(--line);border-radius:6px;padding:11px 12px;font:inherit;background:#fff;color:var(--fg)}
 .pick .chosen{color:var(--ok);font-weight:600}
 .pick .btn-red{background:#e30613;color:#fff;border:0;border-radius:6px;padding:12px;font-weight:600;width:100%}
@@ -1159,6 +1161,7 @@ function product(p){
           <a class="lnk" href="#page-livraison">Voir toutes les options de livraison</a>
         </div></div>
       <div class="box pick"><h3><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9v11h16V9"/><path d="M3 9h18"/><path d="M9 20v-6h6v6"/></svg>Retrait gratuit en magasin</h3>
+        <div class="partner"><span>Magasin partenaire</span><img src="photos/partenaire-cultura.png" alt="Cultura" width="70" height="26"></div>
         <div class="in">${p.pre || p.stock ? `<span class="instock"><i>✓</i>${p.pre ? "précommande en retrait" : "disponible en retrait"}</span><span class="muted">Retrouvez le produit <b>près de chez vous</b>, dans l'un de nos ${MAGASINS.length} magasins partenaires Cultura.</span>
           <span class="chosen">${myShop && shopById(myShop) ? `<b>${esc(shopById(myShop).name)}</b>${esc(shopById(myShop).addr)}` : ""}</span>
           <button class="btn-line" id="pickChoose">${myShop && shopById(myShop) ? "changer de magasin" : "choisir un magasin"}</button>
@@ -1288,7 +1291,7 @@ const PAGES = {
   "livraison": ["Livraison et délais", "Délais et tarifs de livraison Kuktu : expédition sous 24h ouvrées, livraison offerte en France par Colissimo et Mondial Relay.", () => `
     <h2>Zones desservies</h2><p>France métropolitaine. <mark>[Autres pays : à préciser]</mark></p>
     <h2>Délais</h2><p>Les produits en stock sont expédiés sous 24h ouvrées après validation du paiement. Comptez ensuite 2 à 4 jours ouvrés selon le transporteur. Les précommandes sont expédiées dès la sortie officielle du produit.</p>
-    <h2>Retrait en magasin</h2><p>Retrait gratuit dans nos ${MAGASINS.length} magasins partenaires Cultura, au choix sur la fiche produit ou en haut de page. Vous êtes prévenu par e-mail dès que la commande est disponible ; présentez l'e-mail et une pièce d'identité au retrait.</p>
+    <h2>Retrait en magasin</h2><div class="partner"><span>Magasin partenaire</span><img src="photos/partenaire-cultura.png" alt="Cultura" width="70" height="26"></div><p>Retrait gratuit dans nos ${MAGASINS.length} magasins partenaires Cultura, au choix sur la fiche produit ou en haut de page. Vous êtes prévenu par e-mail dès que la commande est disponible ; présentez l'e-mail et une pièce d'identité au retrait.</p>
     <h2>Transporteurs et tarifs</h2><ul><li>Transporteurs : ${SHOP.carriers}.</li>${SHOP.freeFrom > 0 ? `<li>Livraison offerte dès ${SHOP.freeFrom} € d'achat.</li><li>En dessous : ${fill(SHOP.shipCost)}, montant affiché dans le panier avant paiement.</li>` : `<li>Livraison offerte sur toutes les commandes, sans minimum d'achat.</li>`}</ul>
     <h2>Suivi et réception</h2><p>Un numéro de suivi est envoyé par e-mail à l'expédition. Si le colis arrive abîmé, émettez des réserves auprès du transporteur et contactez-nous sous 48h avec des photos.</p>`],
   "retours": ["Retours et remboursements", "Retours gratuits sous 30 jours et droit de rétractation chez Kuktu.", () => `
